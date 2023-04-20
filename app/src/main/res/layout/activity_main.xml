@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--android:background="#444444" -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Timer"
+            android:text="00"
+            android:textColor="#000000"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/answerLayout"
+        app:layout_constraintEnd_toEndOf="@+id/answerLayout"
+        app:layout_constraintStart_toStartOf="@+id/answerLayout">
+
+        <TextView
+            android:id="@+id/textAttempt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:text="1"
+            android:textAlignment="center"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/textLevel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="100"
+            android:text="1"
+            android:textAlignment="center"
+            android:textSize="24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/leftColorPick"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/answerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/colorLeftChoice1"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/red"
+            android:clickable="true"
+            />
+
+        <ImageView
+            android:id="@+id/colorLeftChoice2"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/yellow"
+            android:clickable="true"
+            />
+
+        <!-- Color choices on the right side of the screen -->
+
+        <ImageView
+            android:id="@+id/colorLeftChoice3"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/blue"
+            android:clickable="true"
+            />
+
+        <ImageView
+            android:id="@+id/colorLeftChoice4"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/green"
+            android:clickable="true"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answerLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/colorRightChoice1"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/orange"
+            android:clickable="true"
+            />
+
+        <ImageView
+            android:id="@+id/colorRightChoice2"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/purple"
+            android:clickable="true"
+            />
+
+        <!-- Color choices on the right side of the screen -->
+
+        <ImageView
+            android:id="@+id/colorRightChoice3"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/brown"
+            android:clickable="true"
+            />
+
+        <ImageView
+            android:id="@+id/colorRightChoice4"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/ic_baseline_lens_24"
+            android:src="@drawable/ic_baseline_lens_25"
+            app:tint="@color/pink"
+            android:clickable="true"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/answerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/colorPick1"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" /> <!-- Use your desired drawable for the box background -->
+
+        <ImageView
+            android:id="@+id/colorPick2"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" />
+
+        <ImageView
+            android:id="@+id/colorPick3"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" />
+
+        <ImageView
+            android:id="@+id/colorPick4"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" />
+
+        <ImageView
+            android:id="@+id/colorPick5"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" />
+
+        <ImageView
+            android:id="@+id/colorPick6"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_background" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
