@@ -4,6 +4,7 @@
     package="com.example.mastermind">
 
     <application
+        android:allowAudioPlaybackCapture="false"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,9 +15,13 @@
         android:theme="@style/Theme.Mastermind"
         tools:targetApi="31">
         <activity
+            android:name=".GameActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

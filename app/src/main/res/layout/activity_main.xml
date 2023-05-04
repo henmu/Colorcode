@@ -4,227 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <!--android:background="#444444" -->
+    tools:context=".MainActivity"
+    android:background="#fbf9ff">
+
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/gameTitle"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameTitle">
 
-        <TextView
-            android:id="@+id/timerTextView"
+        <ImageView
+            android:id="@+id/btnDLowerDifficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="Timer"
-            android:text="00"
-            android:textColor="#000000"
-            android:textSize="36sp" />
-    </LinearLayout>
+            app:srcCompat="@drawable/ic_arrow_left" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/answerLayout"
-        app:layout_constraintEnd_toEndOf="@+id/answerLayout"
-        app:layout_constraintStart_toStartOf="@+id/answerLayout">
-
-        <TextView
-            android:id="@+id/textAttempt"
-            android:layout_width="0dp"
+        <Space
+            android:layout_width="3dp"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:text="1"
-            android:textAlignment="center"
-            android:textSize="24dp" />
+            android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textLevel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="100"
-            android:text="1"
-            android:textAlignment="center"
-            android:textSize="24dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Difficulty"
+                android:textAlignment="gravity"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/difficultyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:shadowColor="@color/black"
+                android:shadowRadius="1"
+                android:text="Normal"
+                android:textSize="34sp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="3dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/btnIncreaseDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_right" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/leftColorPick"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/answerLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/colorLeftChoice1"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/red"
-            android:clickable="true"
-            />
-
-        <ImageView
-            android:id="@+id/colorLeftChoice2"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/yellow"
-            android:clickable="true"
-            />
-
-        <!-- Color choices on the right side of the screen -->
-
-        <ImageView
-            android:id="@+id/colorLeftChoice3"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/blue"
-            android:clickable="true"
-            />
-
-        <ImageView
-            android:id="@+id/colorLeftChoice4"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/green"
-            android:clickable="true"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answerLayout"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/colorRightChoice1"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/orange"
-            android:clickable="true"
-            />
-
-        <ImageView
-            android:id="@+id/colorRightChoice2"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/purple"
-            android:clickable="true"
-            />
-
-        <!-- Color choices on the right side of the screen -->
-
-        <ImageView
-            android:id="@+id/colorRightChoice3"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/brown"
-            android:clickable="true"
-            />
-
-        <ImageView
-            android:id="@+id/colorRightChoice4"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
-            android:background="@drawable/ic_baseline_lens_24"
-            android:src="@drawable/ic_baseline_lens_25"
-            app:tint="@color/pink"
-            android:clickable="true"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/answerLayout"
+        android:id="@+id/buttonsLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="10dp">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/colorPick1"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" /> <!-- Use your desired drawable for the box background -->
+            <ImageView
+                android:id="@+id/playButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/btn_background"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageView
-            android:id="@+id/colorPick2"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/playBtn"
+                android:textSize="24sp" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/colorPick3"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
 
-        <ImageView
-            android:id="@+id/colorPick4"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/colorPick5"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" />
+            <ImageView
+                android:id="@+id/quitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/btn_background"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageView
-            android:id="@+id/colorPick6"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:background="@drawable/box_background" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/quitBtn"
+                android:textSize="24sp" />
+        </RelativeLayout>
 
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

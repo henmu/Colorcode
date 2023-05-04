@@ -1,35 +1,26 @@
 package com.example.mastermind
 
-import android.content.res.ColorStateList
-import android.graphics.drawable.ColorDrawable
-import android.media.Image
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.ImageView
+import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
+
+const val EASY_TIMER_LIMIT_MS = 120000L // 120 seconds
+const val NORMAL_TIMER_LIMIT_MS = 90000L // 90 seconds
+const val HARD_TIMER_LIMIT_MS = 60000L // 60 seconds
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var answerBoxes : Array<ImageView>
-    private lateinit var colorPicks : Array<ImageView>
-
-    private var currentColorIndex: Int = 0
-
-    private val colors = arrayOf(
-        R.color.red,
-        R.color.yellow,
-        R.color.blue,
-        R.color.green,
-        R.color.orange,
-        R.color.purple,
-        R.color.brown,
-        R.color.pink
-    )
+    private val difficultyLevels = listOf("Easy", "Normal", "Hard")
+    private val difficultyLevelsColor = arrayOf(R.color.green, R.color.yellow, R.color.red)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
-
         // Set window flags to make the app full screen
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
@@ -45,49 +36,46 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        answerBoxes = arrayOf(
-            findViewById(R.id.colorPick1),
-            findViewById(R.id.colorPick2),
-            findViewById(R.id.colorPick3),
-            findViewById(R.id.colorPick4),
-            findViewById(R.id.colorPick5),
-            findViewById(R.id.colorPick6)
-        )
+        val difficultyLevel = findViewById<TextView>(R.id.difficultyLevel)
 
-        colorPicks = arrayOf(
-            findViewById(R.id.colorLeftChoice1),
-            findViewById(R.id.colorLeftChoice2),
-            findViewById(R.id.colorLeftChoice3),
-            findViewById(R.id.colorLeftChoice4),
-            findViewById(R.id.colorRightChoice1),
-            findViewById(R.id.colorRightChoice2),
-            findViewById(R.id.colorRightChoice3),
-            findViewById(R.id.colorRightChoice4)
-        )
+        val btnLowerDifficulty = findViewById<ImageView>(R.id.btnDLowerDifficulty)
+        val btnIncreaseDifficulty = findViewById<ImageView>(R.id.btnIncreaseDifficulty)
+
+        var difficultyLevelIndex = 1 // Default to "Normal"
+        difficultyLevel.text = difficultyLevels[difficultyLevelIndex]
+        difficultyLevel.setTextColor(difficultyLevelsColor[difficultyLevelIndex])
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            difficultyLevel.setTextColor(getColor(difficultyLevelsColor[difficultyLevelIndex]))
+        }
 
 
-        for (i in colorPicks.indices) {
-            val colorPickView = colorPicks[i]
-            colorPickView.setOnClickListener{
-                val color = colorPickView.imageTintList!!.defaultColor
-                for (j in answerBoxes.indices) {
-                    val answerView = answerBoxes[j]
-                    if (answerView.backgroundTintList == null) {
-                        answerView.backgroundTintList = ColorStateList.valueOf(color)
-                        break
-                    }
-                }
+        btnLowerDifficulty.setOnClickListener {
+            difficultyLevelIndex = (difficultyLevelIndex - 1 + difficultyLevels.size) % difficultyLevels.size
+            difficultyLevel.text = difficultyLevels[difficultyLevelIndex]
+            difficultyLevel.setTextColor(difficultyLevelsColor[difficultyLevelIndex])
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                difficultyLevel.setTextColor(getColor(difficultyLevelsColor[difficultyLevelIndex]))
             }
         }
-    }
 
-    private fun generateAnswerColorSeq() : List<Int> {
-        val colorSeq = mutableListOf<Int>()
-        for (i in 1..6) {
-            val randomColor = colors.random()
-            colorSeq.add(randomColor)
+        btnIncreaseDifficulty.setOnClickListener {
+            difficultyLevelIndex = (difficultyLevelIndex + 1) % difficultyLevels.size
+            difficultyLevel.text = difficultyLevels[difficultyLevelIndex]
+            difficultyLevel.setTextColor(difficultyLevelsColor[difficultyLevelIndex])
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                difficultyLevel.setTextColor(getColor(difficultyLevelsColor[difficultyLevelIndex]))
+            }
         }
-        return colorSeq
-    }
 
+        val playButton = findViewById<ImageView>(R.id.playButton)
+        playButton.setOnClickListener {
+            val intent = Intent(this, GameActivity::class.java)
+            when (difficultyLevel.text) {
+                "Easy" -> intent.putExtra("TIMER_LIMIT_MS", EASY_TIMER_LIMIT_MS)
+                "Normal" -> intent.putExtra("TIMER_LIMIT_MS", NORMAL_TIMER_LIMIT_MS)
+                "Hard" -> intent.putExtra("TIMER_LIMIT_MS", HARD_TIMER_LIMIT_MS)
+            }
+            startActivity(intent)
+        }
+    }
 }

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity"
+    android:background="#fbf9ff">
+
+    <LinearLayout
+        android:id="@+id/timerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/timer"
+            android:text="@string/_00"
+            android:textColor="#000000"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/leftColorPickLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/colorLeftChoice1"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/color_btn_stroke"
+            app:backgroundTint="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/colorLeftChoice2"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/yellow"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ImageView
+            android:id="@+id/colorLeftChoice3"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/blue"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ImageView
+            android:id="@+id/colorLeftChoice4"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/green"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rightColorPickLayout"
+        android:layout_width="76dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/colorRightChoice1"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/orange"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/colorRightChoice2"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/purple"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/colorRightChoice3"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            app:backgroundTint="@color/aqua"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <ImageView
+            android:id="@+id/colorRightChoice4"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/color_btn_background"
+            android:src="@drawable/ic_btn_circle_add"
+            android:backgroundTint="@color/pink"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/answerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot1"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke" />
+
+            <ImageView
+                android:id="@+id/previousColorSlot1"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot2"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke"  />
+
+            <ImageView
+                android:id="@+id/previousColorSlot2"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot3"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke" />
+
+            <ImageView
+                android:id="@+id/previousColorSlot3"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot4"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke" />
+
+            <ImageView
+                android:id="@+id/previousColorSlot4"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot5"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke"  />
+
+            <ImageView
+                android:id="@+id/previousColorSlot5"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/colorSlotPair6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/colorSlot6"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:background="@drawable/answer_slot_background"
+                android:src="@drawable/answer_slot_stroke"  />
+
+            <ImageView
+                android:id="@+id/previousColorSlot6"
+                android:layout_width="57dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/previous_slot_background"
+                android:src="@drawable/previous_slot_stroke"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/correctTextsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/answerLayout"
+        app:layout_constraintStart_toStartOf="@+id/answerLayout"
+        app:layout_constraintTop_toBottomOf="@+id/answerLayout">
+
+        <TextView
+            android:id="@+id/correctColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_correct_color" />
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_correct_position" />
+
+        <TextView
+            android:id="@+id/correctPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/_0"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/answerLayout"
+        app:layout_constraintStart_toStartOf="@+id/answerLayout">
+
+        <Button
+            android:id="@+id/newGameButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#72f25e"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/new_game"
+            android:textColor="@color/black"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+        <!-- android:visibility="gone"-->
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/quitGameButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#f21f0c"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/quit"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/roundStatusText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/roundStatus"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/answerLayout"
+        app:layout_constraintEnd_toEndOf="@+id/answerLayout"
+        app:layout_constraintStart_toStartOf="@+id/answerLayout"
+        app:layout_constraintTop_toBottomOf="@+id/timerLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
